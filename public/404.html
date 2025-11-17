@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reindirizzamento…</title>
+    <meta name="robots" content="noindex" />
+    <style>
+      html,body{height:100%;margin:0}body{display:flex;align-items:center;justify-content:center;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#0f172a;color:#e2e8f0}
+      .card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);padding:24px 28px;border-radius:16px}
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1 style="margin:0 0 8px;font-size:20px">Reindirizzamento alla SPA…</h1>
+      <p style="margin:0;opacity:.8">Stai per essere reindirizzato alla pagina corretta.</p>
+    </div>
+    <script>
+      // GitHub Pages / hosting statico SPA fallback
+      // Preserva il path e ricarica l'app React
+      var l = window.location;
+      var base = l.protocol + '//' + l.host + '/';
+      // Carica l'app alla root mantenendo il path nella history
+      window.history.replaceState(null, '', base);
+      window.location.replace(base);
+    </script>
+  </body>
+</html>
