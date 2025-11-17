@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { comuniBySlug } from '../data/comuni'
+import SEO from '../components/SEO'
 
 export default function Comune() {
   const { slug } = useParams()
@@ -16,8 +17,13 @@ export default function Comune() {
     )
   }
 
+  const title = `${comune.name} | RagusaWeb`
+  const description = `${comune.name}: ${comune.tagline}. Scopri cosa vedere, i punti salienti e dove alloggiare con Maltese16 e Correri125.`
+  const canonical = `https://www.ragusaweb.com/comune/${slug}`
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      <SEO title={title} description={description} canonical={canonical} image={comune.image} />
       <div className="max-w-5xl mx-auto px-6 py-12">
         <Link to="/" className="text-sky-300 hover:text-white">← Torna indietro</Link>
         <div className="mt-6 grid md:grid-cols-2 gap-8 items-start">
@@ -50,6 +56,35 @@ export default function Comune() {
               >
                 Alloggia con Correri125
               </a>
+            </div>
+
+            {/* Sezioni SEO aggiuntive */}
+            <div className="mt-12 grid gap-10">
+              <section>
+                <h2 className="text-2xl font-bold mb-3">Cosa vedere a {comune.name}</h2>
+                <p className="text-sky-100/90 leading-relaxed">
+                  Esplora il meglio di {comune.name}: monumenti, chiese, musei e scorci panoramici. Passeggia tra i vicoli storici, scopri le piazze principali e
+                  lasciati guidare dall'architettura barocca tipica degli Iblei.
+                </p>
+              </section>
+              <section>
+                <h2 className="text-2xl font-bold mb-3">Dove mangiare</h2>
+                <p className="text-sky-100/90 leading-relaxed">
+                  Cucina locale autentica con prodotti tipici: sapori mediterranei, dolci della tradizione e vini del territorio. Prenota con anticipo nei periodi di alta stagione.
+                </p>
+              </section>
+              <section>
+                <h2 className="text-2xl font-bold mb-3">Eventi e tradizioni</h2>
+                <p className="text-sky-100/90 leading-relaxed">
+                  Feste patronali, manifestazioni culturali e mercati contadini animano l'anno. Verifica il calendario eventi per vivere un'esperienza ancora più autentica.
+                </p>
+              </section>
+              <section>
+                <h2 className="text-2xl font-bold mb-3">Mappa e come arrivare</h2>
+                <p className="text-sky-100/90 leading-relaxed">
+                  {comune.name} è ben collegata con le principali arterie della Sicilia Sud-Orientale. Aeroporto più vicino: Comiso (CIY). Consigliata l'auto per spostarsi tra mare e entroterra.
+                </p>
+              </section>
             </div>
           </div>
         </div>
